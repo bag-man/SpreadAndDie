@@ -23,6 +23,11 @@ public class Board
     }
   }
 
+  public void movePlayerRandom() 
+  {
+    //Find surrounding co-ordinates, and pick one at random. 
+  }
+
   public void createDisease(int x, int y)
   {
     diseaseYposition = y;
