@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class MainProgram
 {
   public static void main(String[] args) 
@@ -8,6 +10,7 @@ public class MainProgram
 
     //Create and display board
     Board bd = new Board(regions);
+    bd.updatePlayerValue();
     bd.printBoard();
 
     //Get the disease starting point from user
@@ -19,5 +22,15 @@ public class MainProgram
 
     //Place disease
     bd.createDisease(diseaseX, diseaseY);
+    bd.printBoard();
+    
+    //Move player
+    System.out.println("Press enter to move the player randomly");
+    while(!bd.endGame())
+    {
+      bd.updatePlayerValue();
+      bd.printBoard();
+      new Scanner(System.in).nextLine();
+    }
   }
 }
