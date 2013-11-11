@@ -26,7 +26,7 @@ public class Board
     //Assign varables
     Random rand = new Random();  
     board = new String[DIM][DIM];
-    regionLetters = {A,B,X,Y};
+    regionLetters = new String[] {A,B,X,Y};
     playerYposition = rand.nextInt(DIM);
     playerXposition = rand.nextInt(DIM);
 
@@ -85,7 +85,7 @@ public class Board
     playerYposition = randomPosition(playerYposition);
     playerXposition = randomPosition(playerXposition);
     board[oldPlayerYposition][oldPlayerXposition] = board[playerYposition][playerXposition];
-    board[playerYposition][playerXposition] = "\033[44mP\033[m";
+    board[playerYposition][playerXposition] = P;
   }
 
   public boolean endGame() 
