@@ -29,7 +29,7 @@ public class Board
 
     while(value >11 || value <0)
     {
-      value = (position + (-1 + (int)(Math.random() * ((1 - -1) +1))));
+      value = (position + (-1 + (int)(Math.random() * 3)));
     }
     return value;
   }
