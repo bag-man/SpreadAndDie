@@ -2,23 +2,42 @@ import java.util.Random;
 
 public class Board 
 {
-  //board[Y][X]
-  private String[][] board = new String[12][12];
-  private String[] regionLetters = {"\033[42m \033[m", "\033[45m \033[m", "\033[47m \033[m", "\033[46m \033[m"};
-  private int playerYposition = new Random().nextInt(12);  
-  private int playerXposition = new Random().nextInt(12);
+
+  //Define constants
+  private static final int DIM = 12;
+  private static final String A = "\033[42m \033[m";
+  private static final String B = "\033[45m \033[m";
+  private static final String X = "\033[47m \033[m";
+  private static final String Y = "\033[46m \033[m";
+  private static final String D = "\033[41mD\033[m";
+  private static final String I = "\033[41mI\033[m";
+  private static final String P = "\033[44mP\033[m";
+
+  //Define variables
+  private String[][] board;
+  private String[] regionLetters;
+  private int playerYposition, playerXposition;
   private int oldPlayerYposition, oldPlayerXposition;
   private int diseaseYposition, diseaseXposition;
   private int oldDiseaseYposition, oldDiseaseXposition;
 
-  public Board(int numberOfReigons) 
+  public Board(int numReigons) 
   {
+    //Assign varables
+    Random rand = new Random();  
+    board = new String[DIM][DIM];
+    regionLetters = {A,B,X,Y};
+    playerYposition = rand.nextInt(DIM);
+    playerXposition = rand.nextInt(DIM);
+
+    int position;
+
     for(int i=0; i<12; i++)
     {
       for(int y=0;y<12;y++)
       {
-	int regionPosition = new Random().nextInt(numberOfReigons);
-        board[i][y] = regionLetters[regionPosition];
+	position = rand.nextInt(numReigons);
+        board[i][y] = regionLetters[position];
       }
     }
   }
@@ -40,7 +59,7 @@ public class Board
     diseaseXposition = x;
     oldDiseaseYposition = diseaseYposition;
     oldDiseaseXposition = diseaseXposition;
-    board[diseaseYposition][diseaseXposition] = "\033[41mD\033[m";
+    board[diseaseYposition][diseaseXposition] = D;
   }
 
   public void updateDisease()
@@ -51,9 +70,9 @@ public class Board
       {
 	if(board[oldDiseaseYposition + j][oldDiseaseXposition + i] == board[oldDiseaseYposition][oldDiseaseXposition])
 	{
-	  board[oldDiseaseYposition + j][oldDiseaseXposition + i] = "\033[41mD\033[m";
+	  board[oldDiseaseYposition + j][oldDiseaseXposition + i] = D;
 	} else {
-	  board[oldDiseaseYposition + j][oldDiseaseXposition + i] = "\033[41mI\033[m";
+	  board[oldDiseaseYposition + j][oldDiseaseXposition + i] = D;
 	}
       }
     }
