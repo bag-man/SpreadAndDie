@@ -10,7 +10,7 @@ public class MainProgram
 
     //Create and display board
     Board bd = new Board(regions);
-    bd.updatePlayerValue();
+    bd.updatePlayer();
     bd.printBoard();
 
     //Get the disease starting point from user
@@ -28,7 +28,8 @@ public class MainProgram
     System.out.println("Press enter to move the player randomly");
     while(!bd.endGame())
     {
-      bd.updatePlayerValue();
+      bd.updatePlayer();
+      bd.updateDisease();
       bd.printBoard();
       new Scanner(System.in).nextLine();
     }

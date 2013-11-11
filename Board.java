@@ -7,10 +7,9 @@ public class Board
   private String[] regionLetters = {"\033[42m \033[m", "\033[45m \033[m", "\033[47m \033[m", "\033[46m \033[m"};
   private int playerYposition = new Random().nextInt(12);  
   private int playerXposition = new Random().nextInt(12);
-  private int oldPlayerYposition;
-  private int oldPlayerXposition;
-  private int diseaseYposition;
-  private int diseaseXposition;
+  private int oldPlayerYposition, oldPlayerXposition;
+  private int diseaseYposition, diseaseXposition;
+  private int oldDiseaseYposition, oldDiseaseXposition;
 
   public Board(int numberOfReigons) 
   {
@@ -39,10 +38,28 @@ public class Board
   {
     diseaseYposition = y;
     diseaseXposition = x;
+    oldDiseaseYposition = diseaseYposition;
+    oldDiseaseXposition = diseaseXposition;
     board[diseaseYposition][diseaseXposition] = "\033[41mD\033[m";
   }
 
-  public void updatePlayerValue() 
+  public void updateDisease()
+  {
+    for(int i=-1;i==2;i++)
+    {
+      for(int j=-1;j==2;j++)
+      {
+	if(board[oldDiseaseYposition + j][oldDiseaseXposition + i] == board[oldDiseaseYposition][oldDiseaseXposition])
+	{
+	  board[oldDiseaseYposition + j][oldDiseaseXposition + i] = "\033[41mD\033[m";
+	} else {
+	  board[oldDiseaseYposition + j][oldDiseaseXposition + i] = "\033[41mI\033[m";
+	}
+      }
+    }
+  }
+
+  public void updatePlayer() 
   {
     oldPlayerYposition = playerYposition;
     oldPlayerXposition = playerXposition;
