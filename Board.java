@@ -17,9 +17,9 @@ public class Board
   private String[][] board;
   private String[] regionLetters;
   private int playerYposition, playerXposition;
-  private int oldPlayerYposition, oldPlayerXposition;
+  private int prevPlayerYposition, prevPlayerXposition;
   private int diseaseYposition, diseaseXposition;
-  private int oldDiseaseYposition, oldDiseaseXposition;
+  private int prevDiseaseYposition, prevDiseaseXposition;
 
   public Board(int numReigons) 
   {
@@ -57,22 +57,22 @@ public class Board
   {
     diseaseYposition = y;
     diseaseXposition = x;
-    oldDiseaseYposition = diseaseYposition;
-    oldDiseaseXposition = diseaseXposition;
+    prevDiseaseYposition = diseaseYposition;
+    prevDiseaseXposition = diseaseXposition;
     board[diseaseYposition][diseaseXposition] = D;
   }
 
   public void updateDisease()
   {
-    for(int i=-1;i==2;i++)
+    for(int i=-1;i<2;i++)
     {
-      for(int j=-1;j==2;j++)
+      for(int j=-1;j<2;j++)
       {
-	if(board[oldDiseaseYposition + j][oldDiseaseXposition + i] == board[oldDiseaseYposition][oldDiseaseXposition])
+	if(board[prevDiseaseYposition + j][prevDiseaseXposition + i] == board[prevDiseaseYposition][prevDiseaseXposition])
 	{
-	  board[oldDiseaseYposition + j][oldDiseaseXposition + i] = D;
+	  board[prevDiseaseYposition + j][prevDiseaseXposition + i] = D;
 	} else {
-	  board[oldDiseaseYposition + j][oldDiseaseXposition + i] = D;
+	  board[prevDiseaseYposition + j][prevDiseaseXposition + i] = I;
 	}
       }
     }
@@ -80,11 +80,11 @@ public class Board
 
   public void updatePlayer() 
   {
-    oldPlayerYposition = playerYposition;
-    oldPlayerXposition = playerXposition;
+    prevPlayerYposition = playerYposition;
+    prevPlayerXposition = playerXposition;
     playerYposition = randomPosition(playerYposition);
     playerXposition = randomPosition(playerXposition);
-    board[oldPlayerYposition][oldPlayerXposition] = board[playerYposition][playerXposition];
+    board[prevPlayerYposition][prevPlayerXposition] = board[playerYposition][playerXposition];
     board[playerYposition][playerXposition] = P;
   }
 
