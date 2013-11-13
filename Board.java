@@ -75,9 +75,6 @@ public class Board
 	  if(board[y + j][x + i] == prevDisease)
 	  {
 	    board[y + j][x + i] = D;
-	  } else if(board[y + j][x + i] == D)
-	  {
-	    board[y + j][x + i] = D;
 	  } else {
 	    board[y + j][x + i] = I;
 	  }
@@ -125,6 +122,11 @@ public class Board
 	if(board[i][y] == D) {
 	  updateDisease(i,y);
 	}
+
+	if(board[i][y] == I) {
+	  board[i][y] = D;
+	}
+
 	System.out.print(board[i][y]);
         System.out.print("  ");
       }
