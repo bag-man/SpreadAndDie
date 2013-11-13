@@ -68,11 +68,16 @@ public class Board
     {
       for(int j=-1;j<2;j++)
       {
-	if(board[prevDiseaseYposition + j][prevDiseaseXposition + i] == board[prevDiseaseYposition][prevDiseaseXposition])
-	{
-	  board[prevDiseaseYposition + j][prevDiseaseXposition + i] = D;
+	if(prevDiseaseYposition + j >11 || prevDiseaseYposition  + j <0 || prevDiseaseXposition + i >11 || prevDiseaseXposition  + i <0) 
+	{ 
+	  continue;
 	} else {
-	  board[prevDiseaseYposition + j][prevDiseaseXposition + i] = I;
+	  if(board[prevDiseaseYposition + j][prevDiseaseXposition + i] == board[prevDiseaseYposition][prevDiseaseXposition])
+	  {
+	    board[prevDiseaseYposition + j][prevDiseaseXposition + i] = D;
+	  } else {
+	    board[prevDiseaseYposition + j][prevDiseaseXposition + i] = I;
+	  }
 	}
       }
     }
