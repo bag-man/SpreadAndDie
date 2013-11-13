@@ -20,6 +20,7 @@ public class Board
   private int prevPlayerYposition, prevPlayerXposition;
   private int diseaseYposition, diseaseXposition;
   private int prevDiseaseYposition, prevDiseaseXposition;
+  private String prevDisease;
 
   public Board(int numReigons) 
   {
@@ -57,8 +58,7 @@ public class Board
   {
     diseaseYposition = y;
     diseaseXposition = x;
-    prevDiseaseYposition = diseaseYposition;
-    prevDiseaseXposition = diseaseXposition;
+    prevDisease = board[diseaseYposition][diseaseXposition];
     board[diseaseYposition][diseaseXposition] = D;
   }
 
@@ -72,7 +72,7 @@ public class Board
 	{ 
 	  continue;
 	} else {
-	  if(board[prevDiseaseYposition + j][prevDiseaseXposition + i] == board[prevDiseaseYposition][prevDiseaseXposition])
+	  if(board[prevDiseaseYposition + j][prevDiseaseXposition + i] == prevDisease)
 	  {
 	    board[prevDiseaseYposition + j][prevDiseaseXposition + i] = D;
 	  } else {
