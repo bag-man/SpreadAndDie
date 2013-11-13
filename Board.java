@@ -62,7 +62,7 @@ public class Board
     board[diseaseYposition][diseaseXposition] = D;
   }
 
-  public void updateDisease(int y, int x)
+  public void updateDisease(int x, int y)
   {
     for(int i=-1;i<2;i++)
     {
@@ -73,6 +73,9 @@ public class Board
 	  continue;
 	} else {
 	  if(board[y + j][x + i] == prevDisease)
+	  {
+	    board[y + j][x + i] = D;
+	  } else if(board[y + j][x + i] == D)
 	  {
 	    board[y + j][x + i] = D;
 	  } else {
