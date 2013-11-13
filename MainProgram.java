@@ -29,7 +29,6 @@ public class MainProgram
     while(!bd.endGame())
     {
       bd.updatePlayer();
-      bd.updateDisease();
       bd.printBoard();
       new Scanner(System.in).nextLine();
     }

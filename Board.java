@@ -62,21 +62,21 @@ public class Board
     board[diseaseYposition][diseaseXposition] = D;
   }
 
-  public void updateDisease()
+  public void updateDisease(int y, int x)
   {
     for(int i=-1;i<2;i++)
     {
       for(int j=-1;j<2;j++)
       {
-	if(prevDiseaseYposition + j >11 || prevDiseaseYposition  + j <0 || prevDiseaseXposition + i >11 || prevDiseaseXposition  + i <0) 
+	if(y + j >11 || y  + j <0 || x + i >11 || x  + i <0) 
 	{ 
 	  continue;
 	} else {
-	  if(board[prevDiseaseYposition + j][prevDiseaseXposition + i] == prevDisease)
+	  if(board[y + j][x + i] == prevDisease)
 	  {
-	    board[prevDiseaseYposition + j][prevDiseaseXposition + i] = D;
+	    board[y + j][x + i] = D;
 	  } else {
-	    board[prevDiseaseYposition + j][prevDiseaseXposition + i] = I;
+	    board[y + j][x + i] = I;
 	  }
 	}
       }
@@ -119,6 +119,9 @@ public class Board
 
       for(int y=0;y<12;y++)
       { 
+	if(board[i][y] == D) {
+	  updateDisease(i,y);
+	}
 	System.out.print(board[i][y]);
         System.out.print("  ");
       }
