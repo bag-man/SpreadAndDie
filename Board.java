@@ -14,7 +14,7 @@ public class Board
   private static final String P = "\033[44mP\033[m";
 
   //Define variables
-  private String[][] board;
+  private String[][] board, boardPositions;
   private String[] regionLetters;
   private int playerYposition, playerXposition;
   private int prevPlayerYposition, prevPlayerXposition;
@@ -27,6 +27,7 @@ public class Board
     //Assign varables
     Random rand = new Random();  
     board = new String[DIM][DIM];
+    boardPositions = new String[DIM][DIM];
     regionLetters = new String[] {A,B,X,Y};
     playerYposition = rand.nextInt(DIM);
     playerXposition = rand.nextInt(DIM);
@@ -39,6 +40,7 @@ public class Board
       {
 	position = rand.nextInt(numReigons);
         board[i][y] = regionLetters[position];
+	boardPositions[i][y] =regionLetters[position];
       }
     }
   }
@@ -66,13 +68,15 @@ public class Board
   {
     for(int i=-1;i<2;i++)
     {
+
       for(int j=-1;j<2;j++)
       {
 	if(y + j >11 || y  + j <0 || x + i >11 || x  + i <0) 
 	{ 
 	  continue;
 	} else {
-	  if(board[y + j][x + i] == prevDisease)
+	  String foo = board[y + j][x + i]; //Make the next line prettier
+	  if(foo == boardPositions[y][x] || foo == D || foo == I)
 	  {
 	    board[y + j][x + i] = D;
 	  } else {
@@ -121,10 +125,6 @@ public class Board
       { 
 	if(board[i][y] == D) {
 	  updateDisease(i,y);
-	}
-
-	if(board[i][y] == I) {
-	  board[i][y] = D;
 	}
 
 	System.out.print(board[i][y]);
