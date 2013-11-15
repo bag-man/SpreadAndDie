@@ -90,6 +90,7 @@ public class Board
       }
     }
 
+
     for(int x=0;x<12;x++)
     {
       for(int y=0;y<12;y++)
