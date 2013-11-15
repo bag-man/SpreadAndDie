@@ -18,7 +18,6 @@ public class Board
   private String[] regionLetters;
   private int playerYposition, playerXposition;
   private int prevPlayerYposition, prevPlayerXposition;
-  private int diseaseYposition, diseaseXposition;
   private int prevDiseaseYposition, prevDiseaseXposition;
 
   public Board(int numReigons) 
@@ -39,7 +38,7 @@ public class Board
       {
 	position = rand.nextInt(numReigons);
         board[i][y] = regionLetters[position];
-	boardPositions[i][y] =regionLetters[position];
+	boardPositions[i][y] = regionLetters[position];
       }
     }
   }
@@ -112,11 +111,7 @@ public class Board
 
   public boolean endGame() 
   { 
-    if((playerYposition == diseaseYposition) && (playerXposition == diseaseXposition))
-    { 
-      return true;
-    }
-    return false;
+      return false;
   }
 
   public void printBoard() 
