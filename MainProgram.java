@@ -24,12 +24,17 @@ public class MainProgram
     bd.createDisease(diseaseX, diseaseY);
     bd.printBoard();
 
-    /*
-    bd.updateDisease();
+    int i = 0;
+    while(i < 10 ) 
+    {
+      bd.updateDisease();
 
-    new Scanner(System.in).nextLine();
-    bd.printBoard();
-    */
+      new Scanner(System.in).nextLine();
+      bd.printBoard();
+      i++;
+    }
+
+    /*
     
     //Move player
     System.out.println("Press enter to move the player randomly");
@@ -40,5 +45,6 @@ public class MainProgram
       bd.printBoard();
       new Scanner(System.in).nextLine();
     }
+    */
   }
 }

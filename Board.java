@@ -67,7 +67,7 @@ public class Board
       {
 	if(board[x][y] == D)
 	{
-	  boardPositions[y][x] = D;
+	  boardPositions[y][x] = D; //I think this may be the issue
 	  for(int i=-1;i<2;i++)
 	  {
 	    for(int j=-1;j<2;j++)
@@ -112,7 +112,7 @@ public class Board
 
   public boolean endGame() 
   { 
-      return false; //This will change. //Duh
+      return false;
   }
 
   public void printBoard() 
