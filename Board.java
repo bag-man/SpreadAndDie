@@ -68,6 +68,7 @@ public class Board
       {
 	if(board[x][y] == D)
 	{
+	  boardPositions[y][x] = D;
 	  for(int i=-1;i<2;i++)
 	  {
 	    for(int j=-1;j<2;j++)
@@ -79,7 +80,7 @@ public class Board
 		String foo = board[y + j][x + i]; //Make the next line prettier
 		if(foo == boardPositions[y][x] || foo == I)
 		{
-		  board[y + j][x + i] = D; 
+		  boardPositions[y + j][x + i] = D; 
 		} else {
 		  board[y + j][x + i] = I;
 		}
@@ -87,6 +88,14 @@ public class Board
 	    }
 	  }
 	}
+      }
+    }
+    for(int x=0;x<12;x++)
+    {
+      for(int y=0;y<12;y++)
+      {
+	if(boardPositions[y][x] == D)
+	  board[y][x] = D;
       }
     }
   }
