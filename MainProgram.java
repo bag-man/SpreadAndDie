@@ -23,14 +23,22 @@ public class MainProgram
     //Place disease
     bd.createDisease(diseaseX, diseaseY);
     bd.printBoard();
+
+    bd.updateDisease();
+
+    new Scanner(System.in).nextLine();
+    bd.printBoard();
     
+    /*
     //Move player
     System.out.println("Press enter to move the player randomly");
     while(!bd.endGame())
     {
       bd.updatePlayer();
+      bd.updateDisease();
       bd.printBoard();
       new Scanner(System.in).nextLine();
     }
+    */
   }
 }
