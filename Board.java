@@ -112,7 +112,7 @@ public class Board
 
   public boolean endGame() 
   { 
-      return false; //This will change.
+      return false; //This will change. //Duh
   }
 
   public void printBoard() 
