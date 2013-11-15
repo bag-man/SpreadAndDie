@@ -20,7 +20,6 @@ public class Board
   private int prevPlayerYposition, prevPlayerXposition;
   private int diseaseYposition, diseaseXposition;
   private int prevDiseaseYposition, prevDiseaseXposition;
-  private String prevDisease;
 
   public Board(int numReigons) 
   {
@@ -58,10 +57,7 @@ public class Board
 
   public void createDisease(int x, int y)
   {
-    diseaseYposition = y;
-    diseaseXposition = x;
-    prevDisease = board[diseaseYposition][diseaseXposition];
-    board[diseaseYposition][diseaseXposition] = D;
+    board[y][x] = D;
   }
 
   public void updateDisease(int x, int y)
