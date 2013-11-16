@@ -14,7 +14,7 @@ public class Board
   private static final String P = "\033[44mP\033[m";
 
   //Define variables
-  private String[][] board, boardPositions;
+  private String[][] board, boardPositions, diseasePositions;
   private String[] regionLetters;
   private int playerYposition, playerXposition;
   private int prevPlayerYposition, prevPlayerXposition;
@@ -26,6 +26,7 @@ public class Board
     Random rand = new Random();  
     board = new String[DIM][DIM];
     boardPositions = new String[DIM][DIM];
+    diseasePositions = new String[DIM][DIM];
     regionLetters = new String[] {A,B,X,Y};
     playerYposition = rand.nextInt(DIM);
     playerXposition = rand.nextInt(DIM);
@@ -67,7 +68,7 @@ public class Board
       {
 	if(board[x][y] == D)
 	{
-	  boardPositions[y][x] = D; //I think this may be the issue
+	  diseasePositions[y][x] = D; 
 	  for(int i=-1;i<2;i++)
 	  {
 	    for(int j=-1;j<2;j++)
@@ -79,7 +80,7 @@ public class Board
 		String foo = board[y + j][x + i]; //Make the next line prettier
 		if(foo == boardPositions[y][x] || foo == I)
 		{
-		  boardPositions[y + j][x + i] = D; 
+		  diseasePositions[y + j][x + i] = D; 
 		} else {
 		  board[y + j][x + i] = I;
 		}
@@ -94,8 +95,10 @@ public class Board
     {
       for(int y=0;y<12;y++)
       {
-	if(boardPositions[y][x] == D)
+	if(diseasePositions[y][x] == D)
+	{
 	  board[y][x] = D;
+	}
       }
     }
   }
