@@ -35,7 +35,6 @@ public class MainProgram
     }
 
     /*
-    
     //Move player
     System.out.println("Press enter to move the player randomly");
     while(!bd.endGame())
