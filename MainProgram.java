@@ -24,6 +24,7 @@ public class MainProgram
     bd.createDisease(diseaseX, diseaseY);
     bd.printBoard();
 
+    /*
     int i = 0;
     while(i < 20 ) 
     {
@@ -32,18 +33,16 @@ public class MainProgram
       new Scanner(System.in).nextLine();
       bd.printBoard();
       i++;
-    }
+    }*/
 
-    /*
     //Move player
     System.out.println("Press enter to move the player randomly");
-    while(!bd.endGame())
+    while(bd.endGame() != true)
     {
       bd.updatePlayer();
       bd.updateDisease();
       bd.printBoard();
       new Scanner(System.in).nextLine();
     }
-    */
   }
 }

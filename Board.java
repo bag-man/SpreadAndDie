@@ -19,6 +19,7 @@ public class Board
   private int playerYposition, playerXposition;
   private int prevPlayerYposition, prevPlayerXposition;
   private int prevDiseaseYposition, prevDiseaseXposition;
+  private boolean gameOver;
 
   public Board(int numReigons) 
   {
@@ -78,6 +79,10 @@ public class Board
 		String foo = board[x + j][y + i]; //Make the next line prettier
 		if(foo == boardPositions[x][y] || foo == I || foo == D)
 		{
+		  if(diseasePositions[x + j][y + i] == P) 
+		  {
+		    gameOver = true;
+		  }
 		  diseasePositions[x + j][y + i] = D; 
 		} else {
 		  diseasePositions[x + j][y + i] = I;
@@ -113,7 +118,12 @@ public class Board
 
   public boolean endGame() 
   { 
+    if(gameOver == true)
+    {
+      return true;
+    } else {
       return false;
+    }
   }
 
   public void printBoard() 
