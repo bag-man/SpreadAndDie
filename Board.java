@@ -66,7 +66,6 @@ public class Board
     {
       for(int y=0;y<12;y++)
       {
-	//System.err.println("X: " + x + " Y: " + y);
 	if(board[x][y] == D)
 	{
 	  diseasePositions[x][y] = D; 
@@ -74,10 +73,8 @@ public class Board
 	  {
 	    for(int j=-1;j<2;j++)
 	    {
-	      if(x + j >11 || x  + j <0 || y + i >11 || y  + i <0) 
-	      { 
-		//continue; //Is this continue killing the main loop?
-	      } else {
+	      if(x + j <=11 && x  + j >=0 && y + i <=11 && y  + i >=0) 
+	      {
 		String foo = board[x + j][y + i]; //Make the next line prettier
 		if(foo == boardPositions[x][y] || foo == I || foo == D)
 		{
@@ -99,7 +96,6 @@ public class Board
 	if(diseasePositions[x][y] == D || diseasePositions[x][y] == I)
 	{
 	  board[x][y] = diseasePositions[x][y];
-	  diseasePositions[x][y] = null;
 	}
       }
     }
