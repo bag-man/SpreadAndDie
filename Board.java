@@ -68,21 +68,21 @@ public class Board
       {
 	if(board[x][y] == D)
 	{
-	  diseasePositions[y][x] = D; 
+	  diseasePositions[x][y] = D; 
 	  for(int i=-1;i<2;i++)
 	  {
 	    for(int j=-1;j<2;j++)
 	    {
-	      if(y + j >11 || y  + j <0 || x + i >11 || x  + i <0) 
+	      if(x + j >11 || x  + j <0 || y + i >11 || y  + i <0) 
 	      { 
 		continue;
 	      } else {
-		String foo = board[y + j][x + i]; //Make the next line prettier
-		if(foo == boardPositions[y][x] || foo == I)
+		String foo = board[x + j][y + i]; //Make the next line prettier
+		if(foo == boardPositions[x][y] || foo == I)
 		{
-		  diseasePositions[y + j][x + i] = D; 
+		  diseasePositions[x + j][y + i] = D; 
 		} else {
-		  board[y + j][x + i] = I;
+		  board[x + j][y + i] = I;
 		}
 	      }
 	    }
@@ -95,9 +95,9 @@ public class Board
     {
       for(int y=0;y<12;y++)
       {
-	if(diseasePositions[y][x] == D)
+	if(diseasePositions[x][y] == D)
 	{
-	  board[y][x] = D;
+	  board[x][y] = D;
 	}
       }
     }
