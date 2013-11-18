@@ -75,7 +75,7 @@ public class Board
 	    {
 	      if(x + j >11 || x  + j <0 || y + i >11 || y  + i <0) 
 	      { 
-		continue;
+		continue; //Is this continue killing the main loop?
 	      } else {
 		String foo = board[x + j][y + i]; //Make the next line prettier
 		if(foo == boardPositions[x][y] || foo == I)
