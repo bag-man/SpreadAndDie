@@ -25,7 +25,7 @@ public class MainProgram
     bd.printBoard();
 
     int i = 0;
-    while(i < 10 ) 
+    while(i < 20 ) 
     {
       bd.updateDisease();
 

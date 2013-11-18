@@ -57,7 +57,7 @@ public class Board
 
   public void createDisease(int x, int y)
   {
-    board[y][x] = D;
+    board[x][y] = D;
   }
 
   public void updateDisease()
@@ -66,6 +66,7 @@ public class Board
     {
       for(int y=0;y<12;y++)
       {
+	//System.err.println("X: " + x + " Y: " + y);
 	if(board[x][y] == D)
 	{
 	  diseasePositions[x][y] = D; 
@@ -75,14 +76,14 @@ public class Board
 	    {
 	      if(x + j >11 || x  + j <0 || y + i >11 || y  + i <0) 
 	      { 
-		continue; //Is this continue killing the main loop?
+		//continue; //Is this continue killing the main loop?
 	      } else {
 		String foo = board[x + j][y + i]; //Make the next line prettier
-		if(foo == boardPositions[x][y] || foo == I)
+		if(foo == boardPositions[x][y] || foo == I || foo == D)
 		{
 		  diseasePositions[x + j][y + i] = D; 
 		} else {
-		  board[x + j][y + i] = I;
+		  diseasePositions[x + j][y + i] = I;
 		}
 	      }
 	    }
@@ -95,9 +96,10 @@ public class Board
     {
       for(int y=0;y<12;y++)
       {
-	if(diseasePositions[x][y] == D)
+	if(diseasePositions[x][y] == D || diseasePositions[x][y] == I)
 	{
-	  board[x][y] = D;
+	  board[x][y] = diseasePositions[x][y];
+	  diseasePositions[x][y] = null;
 	}
       }
     }
