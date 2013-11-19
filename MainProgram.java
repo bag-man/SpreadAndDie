@@ -6,7 +6,7 @@ public class MainProgram
   {
     //Get number of reigons for board from user
     System.out.print("Enter the number of regions on the board: ");
-    int regions = Keyboard.readInt(); //Need to validate this
+    int regions = Keyboard.readInt();
 
     //Create and display board
     Board bd = new Board(regions);
