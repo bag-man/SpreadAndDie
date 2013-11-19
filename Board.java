@@ -2,7 +2,6 @@ import java.util.Random;
 
 public class Board 
 {
-
   //Define constants
   private static final int DIM = 12;
   private static final String A = "\033[42m \033[m";
@@ -79,11 +78,12 @@ public class Board
 		String foo = board[x + j][y + i]; //Make the next line prettier
 		if(foo == boardPositions[x][y] || foo == I || foo == D)
 		{
-		  if(diseasePositions[x + j][y + i] == P) 
+		  if(foo == P) 
 		  {
 		    gameOver = true;
+		  } else {
+		    diseasePositions[x + j][y + i] = D; 
 		  }
-		  diseasePositions[x + j][y + i] = D; 
 		} else {
 		  diseasePositions[x + j][y + i] = I;
 		}
@@ -120,6 +120,7 @@ public class Board
   { 
     if(gameOver == true)
     {
+      System.out.println("Game over!");
       return true;
     } else {
       return false;
