@@ -85,7 +85,7 @@ public class Board
 		    diseasePositions[x + j][y + i] = D; 
 		  }
 		} else {
-		  diseasePositions[x + j][y + i] = I;
+		  diseasePositions[x + j][y + i] = I; //Need to save the I incase the player is there
 		}
 	      }
 	    }
