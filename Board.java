@@ -78,7 +78,7 @@ public class Board
 		String foo = board[x + j][y + i]; //Make the next line prettier
 		if(foo == boardPositions[x][y] || foo == I || foo == D)
 		{
-		  if(foo == P) 
+		  if(foo == boardPositions[x][y] && foo == boardPositions[playerXposition][playerYposition] && foo == P) 
 		  {
 		    gameOver = true;
 		  } else {
@@ -123,6 +123,7 @@ public class Board
       System.out.println("Game over!");
       return true;
     } else {
+      System.out.println("Game over!");
       return false;
     }
   }

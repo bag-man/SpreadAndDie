@@ -40,11 +40,12 @@ public class MainProgram
     while(bd.endGame() != true)
     {
       bd.updatePlayer();
-      new Scanner(System.in).nextLine();
+/*      new Scanner(System.in).nextLine();
       bd.printBoard();
-      new Scanner(System.in).nextLine();
+      new Scanner(System.in).nextLine();*/
       bd.updateDisease();
       bd.printBoard();
+      new Scanner(System.in).nextLine();
     }
   }
 }
