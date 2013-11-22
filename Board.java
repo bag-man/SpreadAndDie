@@ -57,7 +57,7 @@ public class Board
 
   public void createDisease(int x, int y)
   {
-    board[x][y] = D;
+    board[y][x] = D;
   }
 
   public void updateDisease()
