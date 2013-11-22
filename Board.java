@@ -13,12 +13,8 @@ public class Board
   private static final String P = "\033[44mP\033[m";
 
   //Define variables
-  private String[][] board, boardPositions, diseasePositions;
+  private String[][] board, boardPositions;
   private String[] regionLetters;
-  private int playerYposition, playerXposition;
-  private int prevPlayerYposition, prevPlayerXposition;
-  private int prevDiseaseYposition, prevDiseaseXposition;
-  private boolean gameOver;
 
   public Board(int numReigons) 
   {
@@ -41,91 +37,6 @@ public class Board
         board[i][y] = regionLetters[position];
 	boardPositions[i][y] = regionLetters[position];
       }
-    }
-  }
-
-  public int randomPosition(int position) 
-  {
-    int value = 12; //Bit of a hack
-
-    while(value >11 || value <0)
-    {
-      value = (position + (-1 + (int)(Math.random() * 3)));
-    }
-    return value;
-  }
-
-  public void createDisease(int x, int y)
-  {
-    board[y][x] = D;
-  }
-
-  public void updateDisease()
-  {
-    for(int x=0;x<12;x++)
-    {
-      for(int y=0;y<12;y++)
-      {
-	if(board[x][y] == D)
-	{
-	  diseasePositions[x][y] = D; 
-	  for(int i=-1;i<2;i++)
-	  {
-	    for(int j=-1;j<2;j++)
-	    {
-	      if(x + j <=11 && x  + j >=0 && y + i <=11 && y  + i >=0) 
-	      {
-		String foo = board[x + j][y + i]; //Make the next line prettier
-		if(foo == boardPositions[x][y] || foo == I || foo == D)
-		{
-		  diseasePositions[x + j][y + i] = D; 
-		} else {
-		  diseasePositions[x + j][y + i] = I; 
-		}
-	      }
-	    }
-	  }
-	}
-      }
-    }
-
-    for(int x=0;x<12;x++)
-    {
-      for(int y=0;y<12;y++)
-      {
-	if(diseasePositions[x][y] == D || diseasePositions[x][y] == I)
-	{
-	  if(board[x][y] != P)
-	  {
-	    board[x][y] = diseasePositions[x][y];
-	  }
-	}
-      }
-    }
-  }
-
-  public void updatePlayer() 
-  {
-    prevPlayerYposition = playerYposition;
-    prevPlayerXposition = playerXposition;
-    playerYposition = randomPosition(playerYposition);
-    playerXposition = randomPosition(playerXposition);
-    board[prevPlayerYposition][prevPlayerXposition] = board[playerYposition][playerXposition];
-    if(board[playerYposition][playerXposition] == D)
-    {
-      gameOver = true;
-    }
-    board[playerYposition][playerXposition] = P;
-  }
-
-  public boolean endGame() 
-  { 
-    if(gameOver == true)
-    {
-      System.out.println("Game over!");
-      return true;
-    } else {
-      return false;
     }
   }
 
