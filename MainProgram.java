@@ -24,40 +24,14 @@ public class MainProgram
     bd.createDisease(diseaseX, diseaseY);
     bd.printBoard();
 
-    /*
-    int i = 0;
-    while(i < 20 ) 
-    {
-      bd.updateDisease();
-
-      new Scanner(System.in).nextLine();
-      bd.printBoard();
-      i++;
-    }*/
-
     //Move player
     System.out.println("Press enter to move the player randomly");
     while(bd.endGame() != true)
     {
       bd.updatePlayer();
-/*      new Scanner(System.in).nextLine();
-      bd.printBoard();
-      new Scanner(System.in).nextLine();*/
       bd.updateDisease();
       bd.printBoard();
       new Scanner(System.in).nextLine();
     }
   }
 }
-
-
-  public boolean endGame() 
-  { 
-    if(gameOver == true)
-    {
-      System.out.println("Game over!");
-      return true;
-    } else {
-      return false;
-    }
-  }

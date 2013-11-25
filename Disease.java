@@ -4,6 +4,11 @@ public class Disease
   private String[][] diseasePositions;
   diseasePositions = new String[DIM][DIM];
 
+  public void createDisease(int x, int y)
+  {
+    board[y][x] = D;
+  }
+
   public void updateDisease()
   {
     for(int x=0;x<12;x++)
