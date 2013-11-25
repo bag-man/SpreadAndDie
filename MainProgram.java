@@ -41,7 +41,7 @@ public class MainProgram
 
   public static boolean endGame() 
   { 
-    if(gameOver = true)
+    if(gameOver == true)
     {
       System.out.println("Game over!");
       return true;
