@@ -21,17 +21,11 @@ public class MainProgram
     int diseaseY = Keyboard.readInt();
 
     //Place disease
-    bd.createDisease(diseaseX, diseaseY);
+    Disease ick = new Disease();
+    ick.createDisease(diseaseX, diseaseY);
     bd.printBoard();
 
-    //Move player
-    System.out.println("Press enter to move the player randomly");
-    while(bd.endGame() != true)
-    {
-      bd.updatePlayer();
-      bd.updateDisease();
-      bd.printBoard();
-      new Scanner(System.in).nextLine();
-    }
+    Game game = new Game(bd);
+    
   }
 }
