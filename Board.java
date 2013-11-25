@@ -3,14 +3,14 @@ import java.util.Random;
 public class Board 
 {
   //Define constants
-  private static final int DIM = 12;
-  private static final String A = "\033[42m \033[m";
-  private static final String B = "\033[45m \033[m";
-  private static final String X = "\033[47m \033[m";
-  private static final String Y = "\033[46m \033[m";
-  private static final String D = "\033[41mD\033[m";
-  private static final String I = "\033[41mI\033[m";
-  private static final String P = "\033[44mP\033[m";
+  public static final int DIM = 12;
+  public static final String A = "\033[42m \033[m";
+  public static final String B = "\033[45m \033[m";
+  public static final String X = "\033[47m \033[m";
+  public static final String Y = "\033[46m \033[m";
+  public static final String D = "\033[41mD\033[m";
+  public static final String I = "\033[41mI\033[m";
+  public static final String P = "\033[44mP\033[m";
 
   //Define variables
   private String[][] board, boardPositions;
@@ -35,6 +35,16 @@ public class Board
 	boardPositions[i][y] = regionLetters[position];
       }
     }
+  }
+
+  public void setBoard(int x, int y, String z)
+  {
+    board[x][y] = z;
+  }
+
+  public String getBoard(int x, int y)
+  {
+    return board[x][y];
   }
 
   public void printBoard() 

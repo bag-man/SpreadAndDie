@@ -2,13 +2,15 @@ import java.util.Scanner;
 
 public class MainProgram
 {
+  private static boolean gameOver;
+
   public static void main(String[] args) 
   {
     System.out.print("Enter the number of regions on the board: ");
     int regions = Keyboard.readInt();
 
     Board bd = new Board(regions);
-    Player pl = new Player();
+    Player pl = new Player(bd);
 
     pl.updatePlayer();
     bd.printBoard();
@@ -19,11 +21,11 @@ public class MainProgram
     System.out.print("Y: ");
     int diseaseY = Keyboard.readInt();
 
-    Disease ick = new Disease(diseaseX, diseaseY);
+    Disease ick = new Disease(diseaseX, diseaseY, bd);
     bd.printBoard();
 
     System.out.println("Press enter to move the player randomly");
-    while(bd.endGame() != true)
+    while(endGame() != true)
     {
       pl.updatePlayer();
       ick.updateDisease();
@@ -32,7 +34,7 @@ public class MainProgram
     }
   }
     
-  public boolean endGame() 
+  public static boolean endGame() 
   { 
     if(gameOver == true)
     {

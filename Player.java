@@ -4,13 +4,14 @@ public class Player
 {
   private int playerYposition, playerXposition;
   private int prevPlayerYposition, prevPlayerXposition;
-  private boolean gameOver;
+  private Board bd;
 
-  Player() 
+  Player(Board board) 
   {
     Random rand = new Random();  
-    playerYposition = rand.nextInt(DIM);
-    playerXposition = rand.nextInt(DIM);
+    playerYposition = rand.nextInt(bd.DIM);
+    playerXposition = rand.nextInt(bd.DIM);
+    bd = board;
   }
 
   //Generate a random position around the player
@@ -33,10 +34,10 @@ public class Player
     playerYposition = randomPosition(playerYposition);
     playerXposition = randomPosition(playerXposition);
     board[prevPlayerYposition][prevPlayerXposition] = board[playerYposition][playerXposition];
-    if(board[playerYposition][playerXposition] == D)
+    if(board[playerYposition][playerXposition] == bd.D)
     {
       gameOver = true;
     }
-    board[playerYposition][playerXposition] = P;
+    board[playerYposition][playerXposition] = bd.P;
   }
 }
