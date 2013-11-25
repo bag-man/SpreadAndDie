@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class MainProgram
 {
+  private static int score = 0;
+  private static int level = 1;
   private static boolean gameOver = false;
 
   public static void main(String[] args) 
@@ -12,7 +14,7 @@ public class MainProgram
     Board bd = new Board(regions);
     Player pl = new Player(bd);
 
-    pl.updatePlayer();
+    pl.updatePlayer(level);
     bd.printBoard();
 
     System.out.println("\nThis is the board, you are the P, enter the co-ordiantes for where the Disease starts.");
@@ -27,10 +29,18 @@ public class MainProgram
     System.out.println("Press enter to move the player randomly");
     while(endGame() != true)
     {
-      pl.updatePlayer();
+      pl.updatePlayer(level);
       ick.updateDisease();
       bd.printBoard();
+      System.out.println("\n\nScore: " + score);
+      System.out.println("Level: " + level);
       new Scanner(System.in).nextLine();
+      score++;
+      if(score == 10)
+      {
+	level++;
+	score = 0;
+      }
     }
   }
     

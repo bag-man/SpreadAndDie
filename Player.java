@@ -27,12 +27,20 @@ public class Player
   }
 
   //Move the player randomly
-  public void updatePlayer() 
+  public void updatePlayer(int level) 
   {
     prevPlayerYposition = playerYposition;
     prevPlayerXposition = playerXposition;
-    playerYposition = randomPosition(playerYposition);
-    playerXposition = randomPosition(playerXposition);
+    if(level == 1) 
+    {
+      playerYposition = randomPosition(playerYposition);
+      playerXposition = randomPosition(playerXposition);
+    } else if (level == 2)
+    {
+      //Move away from the disease
+    } else {
+      //Randomly move or change neighboring reigons
+    }
     bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoard(playerYposition, playerXposition));
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)
     {
