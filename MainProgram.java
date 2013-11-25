@@ -19,8 +19,7 @@ public class MainProgram
     System.out.print("Y: ");
     int diseaseY = Keyboard.readInt();
 
-    Disease ick = new Disease();
-    ick.createDisease(diseaseX, diseaseY);
+    Disease ick = new Disease(diseaseX, diseaseY);
     bd.printBoard();
 
     System.out.println("Press enter to move the player randomly");

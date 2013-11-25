@@ -15,17 +15,14 @@ public class Board
   //Define variables
   private String[][] board, boardPositions;
   private String[] regionLetters;
+  Random rand = new Random();
 
   public Board(int numReigons) 
   {
     //Assign varables
-    Random rand = new Random();  
     board = new String[DIM][DIM];
     boardPositions = new String[DIM][DIM];
-    diseasePositions = new String[DIM][DIM];
     regionLetters = new String[] {A,B,X,Y};
-    playerYposition = rand.nextInt(DIM);
-    playerXposition = rand.nextInt(DIM);
 
     int position;
 

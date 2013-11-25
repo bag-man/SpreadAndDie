@@ -2,9 +2,8 @@ public class Disease
 {
   private int prevDiseaseYposition, prevDiseaseXposition;
   private String[][] diseasePositions;
-  diseasePositions = new String[DIM][DIM];
 
-  public void createDisease(int x, int y)
+  Disease(int x, int y)
   {
     board[y][x] = D;
   }

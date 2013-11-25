@@ -1,8 +1,17 @@
+import java.util.Random;
+
 public class Player
 {
   private int playerYposition, playerXposition;
   private int prevPlayerYposition, prevPlayerXposition;
   private boolean gameOver;
+
+  Player() 
+  {
+    Random rand = new Random();  
+    playerYposition = rand.nextInt(DIM);
+    playerXposition = rand.nextInt(DIM);
+  }
 
   //Generate a random position around the player
   public int randomPosition(int position) 
