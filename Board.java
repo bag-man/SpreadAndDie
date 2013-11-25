@@ -47,6 +47,11 @@ public class Board
     return board[x][y];
   }
 
+  public String getBoardPositions(int x, int y)
+  {
+    return boardPositions[x][y];
+  }
+
   public void printBoard() 
   {
     System.out.print("\033c"); //Clear screen in bash

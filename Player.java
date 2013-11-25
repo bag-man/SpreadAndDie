@@ -33,11 +33,11 @@ public class Player
     prevPlayerXposition = playerXposition;
     playerYposition = randomPosition(playerYposition);
     playerXposition = randomPosition(playerXposition);
-    board[prevPlayerYposition][prevPlayerXposition] = board[playerYposition][playerXposition];
-    if(board[playerYposition][playerXposition] == bd.D)
+    bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoard(playerYposition, playerXposition));
+    if(bd.getBoard(playerYposition, playerXposition) == bd.D)
     {
-      gameOver = true;
+      MainProgram.setGameOver();
     }
-    board[playerYposition][playerXposition] = bd.P;
+    bd.setBoard(playerYposition, playerXposition, bd.P);
   }
 }

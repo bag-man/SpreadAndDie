@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class MainProgram
 {
-  private static boolean gameOver;
+  private static boolean gameOver = false;
 
   public static void main(String[] args) 
   {
@@ -34,9 +34,14 @@ public class MainProgram
     }
   }
     
+  public static void setGameOver()
+  {
+    gameOver = true;
+  }
+
   public static boolean endGame() 
   { 
-    if(gameOver == true)
+    if(gameOver = true)
     {
       System.out.println("Game over!");
       return true;
