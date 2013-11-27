@@ -33,8 +33,10 @@ public class Player
     return value;
   }
 
+  //This doesn't wnt to run
   public int checkBoundary(int pos) 
   {
+    System.out.println("This is not running");
     if(pos >11)
     {
       return pos--;
