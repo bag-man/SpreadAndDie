@@ -33,6 +33,21 @@ public class Player
     return value;
   }
 
+  public int checkBoundary(int pos) 
+  {
+    if(pos >11)
+    {
+      return pos--;
+    }
+
+    if(pos <0)
+    {
+      return pos++;
+    }
+
+    return pos;
+  }
+
   //Move the player randomly
   public void updatePlayer(int level) 
   {
@@ -50,11 +65,11 @@ public class Player
       if(totalPlayer > totalDisease)
       {
 	//Need to stop player going out of bounds
-	playerYposition++;
-	playerXposition++;
+	playerYposition = checkBoundary(playerYposition++);
+	playerXposition = checkBoundary(playerXposition++);
       } else {
-	playerYposition--;
-	playerXposition--;
+	playerYposition = checkBoundary(playerYposition--);
+	playerXposition = checkBoundary(playerXposition--);
       }
     } else {
       //Randomly move or change neighboring reigons
