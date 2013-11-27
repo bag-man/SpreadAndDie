@@ -46,9 +46,6 @@ public class Player
 
   public void runAway()
   {
-    //Check for hitting corner
-    //Need to not overwrite previous player posittion if in corner
-
     if(playerYposition > diseaseYposition) 
     {
       playerYposition = checkBoundary(playerYposition + 1);
@@ -68,6 +65,7 @@ public class Player
   {
     prevPlayerYposition = playerYposition;
     prevPlayerXposition = playerXposition;
+
     if(level == 1) 
     {
       playerYposition = randomPosition(playerYposition);
@@ -78,7 +76,9 @@ public class Player
     } else {
       //Randomly move or change neighboring reigons
     }
+
     bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoard(playerYposition, playerXposition));
+
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)
     {
       MainProgram.setGameOver();
