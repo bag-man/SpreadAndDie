@@ -63,8 +63,13 @@ public class Player
 
   public void updatePlayer(int level) 
   {
-    prevPlayerYposition = playerYposition;
-    prevPlayerXposition = playerXposition;
+    if(bd.getBoard(prevPlayerYposition, prevPlayerXposition) != bd.P)
+    {
+      prevPlayerYposition = playerYposition;
+      prevPlayerXposition = playerXposition;
+    } else {
+      //Something maybe
+    }
 
     if(level == 1) 
     {
