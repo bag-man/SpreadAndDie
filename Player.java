@@ -33,21 +33,33 @@ public class Player
     return value;
   }
 
-  //This doesn't wnt to run
   public int checkBoundary(int pos) 
   {
-    System.out.println("This is not running");
     if(pos >11)
-    {
       return pos--;
-    }
 
     if(pos <0)
-    {
       return pos++;
-    }
 
     return pos;
+  }
+
+  public void runAway()
+  {
+    //What about == to disease
+    if(playerYposition > diseaseYposition) 
+    {
+      playerYposition = checkBoundary(playerYposition + 1);
+    } else {
+      playerYposition = checkBoundary(playerYposition - 1);
+    }
+
+    if(playerXposition > diseaseXposition) 
+    {
+      playerXposition = checkBoundary(playerXposition + 1);
+    } else {
+      playerXposition = checkBoundary(playerXposition - 1);
+    }
   }
 
   //Move the player randomly
@@ -61,19 +73,7 @@ public class Player
       playerXposition = randomPosition(playerXposition);
     } else if (level == 2)
     {
-      System.out.println("Is this running?");
-      //Move away from the disease
-      int totalPlayer = playerYposition + playerXposition;
-      int totalDisease = diseaseYposition + diseaseXposition;
-      if(totalPlayer > totalDisease)
-      {
-	//Need to stop player going out of bounds
-	playerYposition = checkBoundary(playerYposition++);
-	playerXposition = checkBoundary(playerXposition++);
-      } else {
-	playerYposition = checkBoundary(playerYposition--);
-	playerXposition = checkBoundary(playerXposition--);
-      } //What if they are equal 3,4 4,3 for example
+      runAway();
     } else {
       //Randomly move or change neighboring reigons
     }
