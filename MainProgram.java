@@ -23,24 +23,26 @@ public class MainProgram
     System.out.print("Y: ");
     int diseaseY = Keyboard.readInt();
 
+    pl.setDisease(diseaseX, diseaseY);
+
     Disease ick = new Disease(diseaseX, diseaseY, bd);
     bd.printBoard();
 
     System.out.println("Press enter to move the player randomly");
     while(endGame() != true)
     {
-      pl.updatePlayer(level);
+      pl.updatePlayer(2);
       ick.updateDisease();
       bd.printBoard();
       System.out.println("\n\nScore: " + score);
       System.out.println("Level: " + level);
       new Scanner(System.in).nextLine();
       score++;
-      if(score == 10)
+      /*if(score == 10)
       {
 	level++;
 	score = 0;
-      }
+      }*/
     }
   }
     
