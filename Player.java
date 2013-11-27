@@ -49,6 +49,7 @@ public class Player
       int totalDisease = diseaseYposition + diseaseXposition;
       if(totalPlayer > totalDisease)
       {
+	//Need to stop player going out of bounds
 	playerYposition++;
 	playerXposition++;
       } else {
