@@ -61,6 +61,7 @@ public class Player
       playerXposition = randomPosition(playerXposition);
     } else if (level == 2)
     {
+      System.out.println("Is this running?");
       //Move away from the disease
       int totalPlayer = playerYposition + playerXposition;
       int totalDisease = diseaseYposition + diseaseXposition;
@@ -72,7 +73,7 @@ public class Player
       } else {
 	playerYposition = checkBoundary(playerYposition--);
 	playerXposition = checkBoundary(playerXposition--);
-      }
+      } //What if they are equal 3,4 4,3 for example
     } else {
       //Randomly move or change neighboring reigons
     }
