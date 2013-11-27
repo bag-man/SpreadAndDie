@@ -46,7 +46,9 @@ public class Player
 
   public void runAway()
   {
-    //What about == to disease
+    //Check for hitting corner
+    //Need to not overwrite previous player posittion if in corner
+
     if(playerYposition > diseaseYposition) 
     {
       playerYposition = checkBoundary(playerYposition + 1);
@@ -62,7 +64,6 @@ public class Player
     }
   }
 
-  //Move the player randomly
   public void updatePlayer(int level) 
   {
     prevPlayerYposition = playerYposition;
