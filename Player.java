@@ -36,10 +36,10 @@ public class Player
   public int checkBoundary(int pos) 
   {
     if(pos >11)
-      return pos--;
+      pos--;
 
     if(pos <0)
-      return pos++;
+      pos++;
 
     return pos;
   }
