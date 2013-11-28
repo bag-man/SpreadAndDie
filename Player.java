@@ -21,10 +21,9 @@ public class Player
     diseaseXposition = dX;
   }
 
-  //Generate a random position around the player
   public int randomPosition(int position) 
   {
-    int value = 12; //Bit of a hack
+    int value = 12; 
 
     while(value >11 || value <0)
     {
@@ -61,14 +60,21 @@ public class Player
     }
   }
 
+  public boolean isCorner(int x, int y)
+  {
+    if((y == 0 || y == 11)  && (x == 0 || x == 11))
+      return true;
+    else
+      return false;
+  }
+
+
   public void updatePlayer(int level) 
   {
-    if(bd.getBoard(prevPlayerYposition, prevPlayerXposition) != bd.P)
+    if(isCorner(playerXposition, playerYposition) == false)
     {
       prevPlayerYposition = playerYposition;
       prevPlayerXposition = playerXposition;
-    } else {
-      //Something maybe
     }
 
     if(level == 1) 
