@@ -96,7 +96,6 @@ public class Player
       //Randomly move or change neighboring reigons
     }
 
-    
     bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
 
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)
