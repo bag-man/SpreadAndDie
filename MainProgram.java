@@ -38,11 +38,13 @@ public class MainProgram
       System.out.println("Level: " + level);
       new Scanner(System.in).nextLine();
       score++;
+
       /*if(score == 10)
       {
 	level++;
 	score = 0;
       }*/
+
     }
   }
     
