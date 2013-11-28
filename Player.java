@@ -5,6 +5,7 @@ public class Player
   private int playerYposition, playerXposition;
   private int diseaseYposition, diseaseXposition;
   private int prevPlayerYposition, prevPlayerXposition;
+  private boolean corner = false;
   private Board bd;
 
   Player(Board board) 
@@ -86,7 +87,9 @@ public class Player
       {
 	prevPlayerYposition = playerYposition;
 	prevPlayerXposition = playerXposition;
-      } 
+      } else {
+	corner = true;
+      }	
 
       runAway();
     } 
@@ -96,7 +99,12 @@ public class Player
       //Randomly move or change neighboring reigons
     }
 
-    bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
+    if(corner == true)
+    {
+      bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoard(prevPlayerYposition, prevPlayerXposition));
+    } else {
+      bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
+    }
 
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)
     {
