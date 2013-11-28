@@ -80,13 +80,13 @@ public class Player
       playerXposition = randomPosition(playerXposition);
     } 
 
-    if (level == 2) 
+    if(level == 2) 
     {
       if(isCorner(playerXposition, playerYposition) == false)
       {
 	prevPlayerYposition = playerYposition;
 	prevPlayerXposition = playerXposition;
-      }
+      } 
 
       runAway();
     } 
@@ -96,7 +96,8 @@ public class Player
       //Randomly move or change neighboring reigons
     }
 
-    bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoard(playerYposition, playerXposition));
+    
+    bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
 
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)
     {
