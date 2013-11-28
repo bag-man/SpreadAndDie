@@ -71,20 +71,28 @@ public class Player
 
   public void updatePlayer(int level) 
   {
-    if(isCorner(playerXposition, playerYposition) == false)
+    if(level == 1) 
     {
       prevPlayerYposition = playerYposition;
       prevPlayerXposition = playerXposition;
-    }
 
-    if(level == 1) 
-    {
       playerYposition = randomPosition(playerYposition);
       playerXposition = randomPosition(playerXposition);
-    } else if (level == 2)
+    } 
+
+    if (level == 2) 
     {
+      if(isCorner(playerXposition, playerYposition) == false)
+      {
+	prevPlayerYposition = playerYposition;
+	prevPlayerXposition = playerXposition;
+      }
+
       runAway();
-    } else {
+    } 
+
+    if(level == 3) 
+    {
       //Randomly move or change neighboring reigons
     }
 
