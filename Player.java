@@ -24,9 +24,9 @@ public class Player
 
   public int randomPosition(int position) 
   {
-    int value = 12; 
+    int value = bd.DIM; 
 
-    while(value >11 || value <0)
+    while(value >bd.DIM -1 || value <0)
     {
       value = (position + (-1 + (int)(Math.random() * 3)));
     }
@@ -35,7 +35,7 @@ public class Player
 
   public int checkBoundary(int pos) 
   {
-    if(pos >11)
+    if(pos >bd.DIM -1)
       pos--;
 
     if(pos <0)
@@ -63,7 +63,7 @@ public class Player
 
   public boolean isCorner(int x, int y)
   {
-    if((y == 0 || y == 11)  && (x == 0 || x == 11))
+    if((y == 0 || y == bd.DIM -1)  && (x == 0 || x == bd.DIM -1))
       return true;
     else
       return false;
