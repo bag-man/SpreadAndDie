@@ -61,6 +61,7 @@ public class Player
     }
   }
 
+  //This isn't used, but I wrote it and I am pleased with it.
   public boolean isCorner(int x, int y)
   {
     if((y == 0 || y == 11)  && (x == 0 || x == 11))
@@ -90,13 +91,7 @@ public class Player
       //Randomly move or change neighboring reigons
     }
 
-    if(corner == true)
-    {
-      //Futile attempt to kill the stationary player
-      //bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoard(prevPlayerYposition, prevPlayerXposition));
-    } else {
-      bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
-    }
+    bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
 
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)
     {
