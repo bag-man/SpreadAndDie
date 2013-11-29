@@ -5,13 +5,14 @@ public class Player
   private int playerYposition, playerXposition;
   private int diseaseYposition, diseaseXposition;
   private int prevPlayerYposition, prevPlayerXposition;
+  private boolean corner = false;
   private Board bd;
 
-  Player(Board board)
+  Player(Board board) 
   {
-    Random rand = new Random();
-    playerYposition = rand.nextInt(12);
-    playerXposition = rand.nextInt(12);
+    Random rand = new Random();  
+    playerYposition = rand.nextInt(bd.DIM);
+    playerXposition = rand.nextInt(bd.DIM);
     bd = board;
   }
 
@@ -21,12 +22,9 @@ public class Player
     diseaseXposition = dX;
   }
 
-  public int randomPosition(int position)
+  public int randomPosition(int position) 
   {
-<<<<<<< HEAD
-    int value = 12;
-=======
->>>>>>> 39df16c55f3a7858ada2ca264dca2882a313d63d
+    int value = 12; 
 
     while(value >11 || value <0)
     {
@@ -35,7 +33,7 @@ public class Player
     return value;
   }
 
-  public int checkBoundary(int pos)
+  public int checkBoundary(int pos) 
   {
     if(pos >11)
       pos--;
@@ -48,14 +46,14 @@ public class Player
 
   public void runAway()
   {
-    if(playerYposition > diseaseYposition)
+    if(playerYposition > diseaseYposition) 
     {
       playerYposition = checkBoundary(playerYposition + 1);
     } else {
       playerYposition = checkBoundary(playerYposition - 1);
     }
 
-    if(playerXposition > diseaseXposition)
+    if(playerXposition > diseaseXposition) 
     {
       playerXposition = checkBoundary(playerXposition + 1);
     } else {
@@ -65,53 +63,48 @@ public class Player
 
   public boolean isCorner(int x, int y)
   {
-<<<<<<< HEAD
-    if((y == 0 || y == 11) && (x == 0 || x == 11))
-=======
     if((y == 0 || y == 11)  && (x == 0 || x == 11))
->>>>>>> 39df16c55f3a7858ada2ca264dca2882a313d63d
       return true;
     else
       return false;
   }
 
 
-  public void updatePlayer(int level)
+  public void updatePlayer(int level) 
   {
-    if(level == 1)
+    if(level == 1) 
     {
       prevPlayerYposition = playerYposition;
       prevPlayerXposition = playerXposition;
 
       playerYposition = randomPosition(playerYposition);
       playerXposition = randomPosition(playerXposition);
-    }
+    } 
 
-    if(level == 2)
+    if(level == 2) 
     {
       if(isCorner(playerXposition, playerYposition) == false)
       {
-<<<<<<< HEAD
-        prevPlayerYposition = playerYposition;
-        prevPlayerXposition = playerXposition;
-      } else {
-        corner = true;
-      }        
-=======
 	prevPlayerYposition = playerYposition;
 	prevPlayerXposition = playerXposition;
-      } 
->>>>>>> parent of 921f53c... Nearly, and now I have a lecture and an exam!
+      } else {
+	corner = true;
+      }	
 
       runAway();
-    }
+    } 
 
-    if(level == 3)
+    if(level == 3) 
     {
       //Randomly move or change neighboring reigons
     }
 
-    bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
+    if(corner == true)
+    {
+      bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoard(prevPlayerYposition, prevPlayerXposition));
+    } else {
+      bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
+    }
 
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)
     {
@@ -120,3 +113,4 @@ public class Player
     bd.setBoard(playerYposition, playerXposition, bd.P);
   }
 }
+
