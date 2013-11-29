@@ -77,15 +77,15 @@ public class Player
       int foo = randomPosition(playerYposition);
       if(foo != playerYposition)
       {
-	playerYposition = foo;
 	prevPlayerYposition = playerYposition;
+	playerYposition = foo;
       }
 
       foo = randomPosition(playerXposition);
       if(foo != playerXposition)
       {
-	playerXposition = foo;
 	prevPlayerXposition = playerXposition;
+	playerXposition = foo;
       }
     } 
 
