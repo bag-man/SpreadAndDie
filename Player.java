@@ -100,6 +100,7 @@ public class Player
 
     if(corner == true)
     {
+      //Futile attempt to kill the stationary player
       bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoard(prevPlayerYposition, prevPlayerXposition));
     } else {
       bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
