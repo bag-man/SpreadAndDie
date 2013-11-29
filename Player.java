@@ -72,13 +72,21 @@ public class Player
 
   public void updatePlayer(int level) 
   {
-    prevPlayerYposition = playerYposition;
-    prevPlayerXposition = playerXposition;
-
     if(level == 1) 
     {
-      playerYposition = randomPosition(playerYposition);
-      playerXposition = randomPosition(playerXposition);
+      int foo = randomPosition(playerYposition);
+      if(foo != playerYposition)
+      {
+	playerYposition = foo;
+	prevPlayerYposition = playerYposition;
+      }
+
+      foo = randomPosition(playerXposition);
+      if(foo != playerXposition)
+      {
+	playerXposition = foo;
+	prevPlayerXposition = playerXposition;
+      }
     } 
 
     if(level == 2) 
