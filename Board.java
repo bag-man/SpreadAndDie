@@ -3,7 +3,7 @@ import java.util.Random;
 public class Board 
 {
   //Define constants
-  public static final int DIM = 24;
+  public static final int DIM = 12;
   public static final String A = "\033[42m \033[m";
   public static final String B = "\033[45m \033[m";
   public static final String X = "\033[47m \033[m";
