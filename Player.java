@@ -11,8 +11,8 @@ public class Player
   Player(Board board)
   {
     Random rand = new Random();
-    playerYposition = rand.nextInt(bd.DIM);
-    playerXposition = rand.nextInt(bd.DIM);
+    playerYposition = rand.nextInt(12);
+    playerXposition = rand.nextInt(12);
     bd = board;
   }
 
@@ -24,7 +24,10 @@ public class Player
 
   public int randomPosition(int position)
   {
+<<<<<<< HEAD
     int value = 12;
+=======
+>>>>>>> 39df16c55f3a7858ada2ca264dca2882a313d63d
 
     while(value >11 || value <0)
     {
@@ -63,7 +66,11 @@ public class Player
 
   public boolean isCorner(int x, int y)
   {
+<<<<<<< HEAD
     if((y == 0 || y == 11) && (x == 0 || x == 11))
+=======
+    if((y == 0 || y == 11)  && (x == 0 || x == 11))
+>>>>>>> 39df16c55f3a7858ada2ca264dca2882a313d63d
       return true;
     else
       return false;
