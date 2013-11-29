@@ -69,7 +69,6 @@ public class Player
       return false;
   }
 
-
   public void updatePlayer(int level) 
   {
     if(level == 1) 
