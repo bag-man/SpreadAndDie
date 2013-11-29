@@ -54,7 +54,7 @@ public class Board
 
   public void printBoard() 
   {
-//    System.out.print("\033c"); //Clear screen in bash
+    System.out.print("\033c"); //Clear screen in bash
 
     System.out.println("X>    0  1  2  3  4  5  6  7  8  9  10 11"); //This isn't scalable
     System.out.println("      -----------------------------------");

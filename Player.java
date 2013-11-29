@@ -70,28 +70,32 @@ public class Player
       return false;
   }
 
+  public void randomMove()
+  {
+    int foo = randomPosition(playerYposition);
+    if(foo != playerYposition)
+    {
+      prevPlayerYposition = playerYposition;
+      playerYposition = foo;
+    } else {
+      //This is where the problem is
+    }
+
+    foo = randomPosition(playerXposition);
+    if(foo != playerXposition)
+    {
+      prevPlayerXposition = playerXposition;
+      playerXposition = foo;
+    } else {
+      //This is where the problem is
+    }
+  }
+
   public void updatePlayer(int level) 
   {
     if(level == 1) 
     {
-      int foo = randomPosition(playerYposition);
-      if(foo != playerYposition)
-      {
-	prevPlayerYposition = playerYposition;
-	playerYposition = foo;
-      } else {
-        //This is where the problem is
-      }
-
-      foo = randomPosition(playerXposition);
-      if(foo != playerXposition)
-      {
-	prevPlayerXposition = playerXposition;
-	playerXposition = foo;
-      } else {
-        //This is where the problem is
-      }
-
+      randomMove();
     } 
 
     if(level == 2) 
