@@ -71,25 +71,17 @@ public class Player
 
   public void updatePlayer(int level) 
   {
+    prevPlayerYposition = playerYposition;
+    prevPlayerXposition = playerXposition;
+
     if(level == 1) 
     {
-      prevPlayerYposition = playerYposition;
-      prevPlayerXposition = playerXposition;
-
       playerYposition = randomPosition(playerYposition);
       playerXposition = randomPosition(playerXposition);
     } 
 
     if(level == 2) 
     {
-      if(isCorner(playerXposition, playerYposition) == false)
-      {
-	prevPlayerYposition = playerYposition;
-	prevPlayerXposition = playerXposition;
-      } else {
-	corner = true;
-      }	
-
       runAway();
     } 
 
@@ -101,7 +93,7 @@ public class Player
     if(corner == true)
     {
       //Futile attempt to kill the stationary player
-      bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoard(prevPlayerYposition, prevPlayerXposition));
+      //bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoard(prevPlayerYposition, prevPlayerXposition));
     } else {
       bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
     }
