@@ -79,6 +79,8 @@ public class Player
       {
 	prevPlayerYposition = playerYposition;
 	playerYposition = foo;
+      } else {
+        //This is where the problem is
       }
 
       foo = randomPosition(playerXposition);
@@ -86,7 +88,10 @@ public class Player
       {
 	prevPlayerXposition = playerXposition;
 	playerXposition = foo;
+      } else {
+        //This is where the problem is
       }
+
     } 
 
     if(level == 2) 
