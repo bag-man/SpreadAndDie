@@ -117,4 +117,3 @@ public class Player
     bd.setBoard(playerYposition, playerXposition, bd.P);
   }
 }
-

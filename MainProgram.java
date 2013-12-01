@@ -8,8 +8,13 @@ public class MainProgram
 
   public static void main(String[] args) 
   {
-    System.out.print("Enter the number of regions on the board: ");
+    System.out.print("Enter the number of regions on the board [2 - 4]: ");
     int regions = Keyboard.readInt();
+    while(regions <2 || regions >4)
+    {  
+      System.out.print("Pick betwen 2 and 4 please: ");
+      regions = Keyboard.readInt();
+    }
 
     Board bd = new Board(regions);
     Player pl = new Player(bd);
