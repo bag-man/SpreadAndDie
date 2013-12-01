@@ -25,8 +25,18 @@ public class MainProgram
     System.out.println("\nThis is the board, you are the P, enter the co-ordiantes for where the Disease starts.");
     System.out.print("X: ");
     int diseaseX = Keyboard.readInt();
+    while(diseaseX <0 || diseaseX >11)
+    {  
+      System.out.print("Pick betwen 0 and 11 please: ");
+      diseaseX = Keyboard.readInt();
+    }
     System.out.print("Y: ");
     int diseaseY = Keyboard.readInt();
+    while(diseaseY <0 || diseaseY >11)
+    {  
+      System.out.print("Pick betwen 0 and 11 please: ");
+      diseaseY = Keyboard.readInt();
+    }
 
     pl.setDisease(diseaseX, diseaseY);
 
