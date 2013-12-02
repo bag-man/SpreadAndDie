@@ -58,16 +58,15 @@ public class Player
 
   public void changeRegions()
   {
-    //Select random region
     int pos = rand.nextInt(bd.getNumRegions());
 
-    //This goes out of bounds some how
     for(int i=-1;i<2;i++)
     {
       for(int j=-1;j<2;j++)
       {
-	if(playerXposition + j <=11 && playerXposition  + j >=0 && playerYposition + i <=11 && playerYposition  + i >=0) 
+	if((playerXposition + j) <=11 && (playerXposition  + j) >=0 && (playerYposition + i) <=11 && (playerYposition  + i) >=0) 
 	{
+	  System.out.println("Y: " + (playerYposition + j) + "X: " +  (playerXposition + i));
 	  bd.setBoardPositions(playerYposition + j, playerXposition + i, bd.regionLetters[pos]);
 	  bd.setBoard(playerYposition + j, playerXposition + i, bd.regionLetters[pos]);
 	}
