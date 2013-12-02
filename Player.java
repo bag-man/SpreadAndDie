@@ -61,6 +61,7 @@ public class Player
     //Select random region
     int pos = rand.nextInt(bd.getNumRegions());
 
+    //This goes out of bounds some how
     for(int i=-1;i<2;i++)
     {
       for(int j=-1;j<2;j++)
