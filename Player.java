@@ -96,9 +96,9 @@ public class Player
       //Randomly move or change neighboring reigons
     }
 
-    //board[prevPlayerYposition][prevPlayerXposition] = boardPositions[prevPlayerYposition][prevPlayerXposition]
     bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
 
+    //This only ends the game if the player moves.
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)
     {
       MainProgram.setGameOver();

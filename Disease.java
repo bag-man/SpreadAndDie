@@ -49,6 +49,8 @@ public class Disease
 	  if(bd.getBoard(x, y) != bd.P)
 	  {
 	    bd.setBoard(x, y, diseasePositions[x][y]);
+	  } else {
+	    MainProgram.setGameOver();
 	  }
 	}
       }

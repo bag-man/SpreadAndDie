@@ -47,7 +47,7 @@ public class MainProgram
     System.out.println("Press enter to move the player randomly");
     while(endGame() != true)
     {
-      pl.updatePlayer(2);
+      pl.updatePlayer(1);
       ick.updateDisease();
       bd.printBoard();
       System.out.println("\n\nScore: " + score);
