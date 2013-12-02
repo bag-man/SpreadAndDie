@@ -7,6 +7,7 @@ public class Player
   private int prevPlayerYposition, prevPlayerXposition;
   private boolean corner = false;
   private Board bd;
+  private Random rand;
 
   Player(Board board) 
   {
@@ -33,17 +34,6 @@ public class Player
     return value;
   }
 
-  public int checkBoundary(int pos) 
-  {
-    if(pos >11)
-      pos--;
-
-    if(pos <0)
-      pos++;
-
-    return pos;
-  }
-
   public void runAway()
   {
     if(playerYposition > diseaseYposition) 
@@ -61,19 +51,15 @@ public class Player
     }
   }
 
-  //This isn't used, but I wrote it and I am pleased with it.
-  public boolean isCorner(int x, int y)
-  {
-    if((y == 0 || y == 11)  && (x == 0 || x == 11))
-      return true;
-    else
-      return false;
-  }
-
   public void randomMove()
   {
     playerXposition = randomPosition(playerXposition);
     playerYposition = randomPosition(playerYposition);
+  }
+
+  public void changeRegions()
+  {
+
   }
 
   public void updatePlayer(int level) 
@@ -93,16 +79,41 @@ public class Player
 
     if(level == 3) 
     {
-      //Randomly move or change neighboring reigons
+      if(rand.nextBoolean() == true)
+      {
+	randomMove();
+      } else {
+	changeRegions();
+      }
     }
 
     bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
 
-    //This only ends the game if the player moves.
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)
     {
       MainProgram.setGameOver();
     }
     bd.setBoard(playerYposition, playerXposition, bd.P);
   }
+
+  public int checkBoundary(int pos) 
+  {
+    if(pos >11)
+      pos--;
+
+    if(pos <0)
+      pos++;
+
+    return pos;
+  }
+
+  //This isn't used, but I wrote it and I am pleased with it.
+  public boolean isCorner(int x, int y)
+  {
+    if((y == 0 || y == 11)  && (x == 0 || x == 11))
+      return true;
+    else
+      return false;
+  }
+
 }
