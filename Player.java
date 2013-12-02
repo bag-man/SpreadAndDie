@@ -58,15 +58,17 @@ public class Player
 
   public void changeRegions()
   {
+    //Select random region
+    int pos = rand.nextInt(bd.getNumRegions());
+
     for(int i=-1;i<2;i++)
     {
       for(int j=-1;j<2;j++)
       {
 	if(playerXposition + j <=11 && playerXposition  + j >=0 && playerYposition + i <=11 && playerYposition  + i >=0) 
 	{
-	  int pos = rand.nextInt(bd.getNumRegions());
-	  bd.setBoardPositions(playerXposition + j, playerYposition + i, bd.regionLetters[pos]);
-	  bd.setBoard(playerXposition + j, playerYposition + i, bd.regionLetters[pos]);
+	  bd.setBoardPositions(playerYposition + j, playerXposition + i, bd.regionLetters[pos]);
+	  bd.setBoard(playerYposition + j, playerXposition + i, bd.regionLetters[pos]);
 	}
       }
     }
@@ -91,7 +93,7 @@ public class Player
     {
       if(rand.nextBoolean() == true)
       {
-//	randomMove();
+	randomMove();
       } else { 
 	changeRegions();
       }
