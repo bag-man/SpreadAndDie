@@ -11,18 +11,19 @@ public class Board
   public static final String D = "\033[41mD\033[m";
   public static final String I = "\033[41mI\033[m";
   public static final String P = "\033[44mP\033[m";
+  public static final String[] regionLetters = new String[] {A,B,X,Y};
 
   //Define variables
   private String[][] board, boardPositions;
-  private String[] regionLetters;
+  private int numReigons;
   Random rand = new Random();
 
-  public Board(int numReigons) 
+  public Board(int x) 
   {
     //Assign varables
     board = new String[DIM][DIM];
     boardPositions = new String[DIM][DIM];
-    regionLetters = new String[] {A,B,X,Y};
+    numReigons = x;
 
     int position;
 
@@ -35,6 +36,11 @@ public class Board
 	boardPositions[i][y] = regionLetters[position];
       }
     }
+  }
+
+  public int getNumRegions()
+  {
+    return numReigons;
   }
 
   public void setBoard(int x, int y, String z)
@@ -50,6 +56,11 @@ public class Board
   public String getBoardPositions(int x, int y)
   {
     return boardPositions[x][y];
+  }
+
+  public void setBoardPositions(int x, int y, String z)
+  {
+    boardPositions[x][y] = z;
   }
 
   public void printBoard() 

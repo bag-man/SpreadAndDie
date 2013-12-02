@@ -41,14 +41,14 @@ public class MainProgram
 
     pl.setDisease(diseaseX, diseaseY);
 
-    Disease ick = new Disease(diseaseX, diseaseY, bd);
+    //Disease ick = new Disease(diseaseX, diseaseY, bd);
     bd.printBoard();
 
     System.out.println("Press enter to move the player randomly");
     while(endGame() != true)
     {
-      pl.updatePlayer(1);
-      ick.updateDisease();
+      pl.updatePlayer(3);
+     // ick.updateDisease();
       bd.printBoard();
       System.out.println("\n\nScore: " + score);
       System.out.println("Level: " + level);
