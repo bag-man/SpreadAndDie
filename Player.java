@@ -72,27 +72,15 @@ public class Player
 
   public void randomMove()
   {
-    int foo = randomPosition(playerYposition);
-    if(foo != playerYposition)
-    {
-      prevPlayerYposition = playerYposition;
-      playerYposition = foo;
-    } else {
-      //This is where the problem is
-    }
-
-    foo = randomPosition(playerXposition);
-    if(foo != playerXposition)
-    {
-      prevPlayerXposition = playerXposition;
-      playerXposition = foo;
-    } else {
-      //This is where the problem is
-    }
+    playerXposition = randomPosition(playerXposition);
+    playerYposition = randomPosition(playerYposition);
   }
 
   public void updatePlayer(int level) 
   {
+    prevPlayerYposition = playerYposition;
+    prevPlayerXposition = playerXposition;
+
     if(level == 1) 
     {
       randomMove();
@@ -108,6 +96,7 @@ public class Player
       //Randomly move or change neighboring reigons
     }
 
+    //board[prevPlayerYposition][prevPlayerXposition] = boardPositions[prevPlayerYposition][prevPlayerXposition]
     bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
 
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)

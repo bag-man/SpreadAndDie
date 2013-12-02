@@ -30,6 +30,7 @@ public class MainProgram
       System.out.print("Pick betwen 0 and 11 please: ");
       diseaseX = Keyboard.readInt();
     }
+
     System.out.print("Y: ");
     int diseaseY = Keyboard.readInt();
     while(diseaseY <0 || diseaseY >11)
@@ -46,7 +47,7 @@ public class MainProgram
     System.out.println("Press enter to move the player randomly");
     while(endGame() != true)
     {
-      pl.updatePlayer(1);
+      pl.updatePlayer(2);
       ick.updateDisease();
       bd.printBoard();
       System.out.println("\n\nScore: " + score);
