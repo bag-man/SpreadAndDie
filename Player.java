@@ -7,11 +7,10 @@ public class Player
   private int prevPlayerYposition, prevPlayerXposition;
   private boolean corner = false;
   private Board bd;
-  private Random rand;
+  Random rand = new Random();  
 
   Player(Board board) 
   {
-    Random rand = new Random();  
     playerYposition = rand.nextInt(bd.DIM);
     playerXposition = rand.nextInt(bd.DIM);
     bd = board;
@@ -67,6 +66,7 @@ public class Player
 	{
 	  int pos = rand.nextInt(bd.getNumRegions());
 	  bd.setBoardPositions(playerXposition + j, playerYposition + i, bd.regionLetters[pos]);
+	  bd.setBoard(playerXposition + j, playerYposition + i, bd.regionLetters[pos]);
 	}
       }
     }
@@ -89,12 +89,12 @@ public class Player
 
     if(level == 3) 
     {
-      /*if(rand.nextBoolean() == true)
+      if(rand.nextBoolean() == true)
       {
-	randomMove();
-      } else { */
+//	randomMove();
+      } else { 
 	changeRegions();
-      //}
+      }
     }
 
     bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
