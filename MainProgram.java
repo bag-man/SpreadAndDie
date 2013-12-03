@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class MainProgram
 {
   private static int score = 0;
-  private static int level = 4;
+  private static int level = 1;
   private static boolean mutation = false, cure = false, gameOver = false;
   private static Random rand = new Random();
 
@@ -86,11 +86,13 @@ public class MainProgram
       new Scanner(System.in).nextLine();
       score++;
 
-      /*if(score == 10)
+      if(score == 20)
       {
+        System.out.println("Level UP!");
+	//Rest game. Should probably make a new class. 
 	level++;
 	score = 0;
-      }*/
+      }
 
     }
   }

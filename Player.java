@@ -103,7 +103,6 @@ public class Player
 
     if(level == 4)
     {
-      //Run away or work on cure
       if(isCorner(playerXposition, playerYposition) == false) { 
 	runAway();
       } else {
