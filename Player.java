@@ -104,10 +104,7 @@ public class Player
     if(level == 4)
     {
       //Run away or work on cure
-      if(rand.nextBoolean() == true)
-      {
-	runAway();
-      } else if (tillCure <= 0 || isCorner(playerXposition, playerYposition) == false) { 
+      if(isCorner(playerXposition, playerYposition) == false) { 
 	runAway();
       } else {
 	--tillCure;

@@ -5,7 +5,7 @@ public class MainProgram
 {
   private static int score = 0;
   private static int level = 4;
-  private static boolean cure = false, gameOver = false;
+  private static boolean mutation = false, cure = false, gameOver = false;
   private static Random rand = new Random();
 
   public static void main(String[] args) 
@@ -58,6 +58,7 @@ public class MainProgram
 	{
 	  cure = false;
 	  pl.setTillCure();
+	  mutation = true;
 	}
       }
 
@@ -69,9 +70,18 @@ public class MainProgram
       bd.printBoard();
       System.out.println("\n\nScore: " + score);
       System.out.println("Level: " + level);
-      if(level == 4)
+      if(level == 4 && mutation == false)
       {
-	System.out.println("Turns till cure: " + pl.getTillCure());
+	if(pl.getTillCure() <= 0)
+	{
+	  System.out.println("The disease has been stopped, lets hope it doesn't mutate");
+
+	} else {
+	  System.out.println("Turns till cure: " + pl.getTillCure());
+	}
+      } else if(level == 4 && mutation == true) {
+	System.out.println("Disease has mutated to resist the cure!");
+	mutation = false;
       }
       new Scanner(System.in).nextLine();
       score++;
