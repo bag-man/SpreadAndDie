@@ -5,6 +5,7 @@ public class Player
   private int playerYposition, playerXposition;
   private int diseaseYposition, diseaseXposition;
   private int prevPlayerYposition, prevPlayerXposition;
+  private int tillCure;
   private boolean corner = false;
   private Board bd;
   Random rand = new Random();  
@@ -14,6 +15,7 @@ public class Player
     playerYposition = rand.nextInt(bd.DIM);
     playerXposition = rand.nextInt(bd.DIM);
     bd = board;
+    tillCure = 5;
   }
 
   public void setDisease(int dX, int dY)
@@ -99,6 +101,19 @@ public class Player
       }
     }
 
+    if(level == 4)
+    {
+      //Run away or work on cure
+      if(rand.nextBoolean() == true)
+      {
+	runAway();
+      } else if (tillCure <= 0 || isCorner(playerXposition, playerYposition) == false) { 
+	runAway();
+      } else {
+	--tillCure;
+      }
+    }
+
     bd.setBoard(prevPlayerYposition, prevPlayerXposition, bd.getBoardPositions(prevPlayerYposition, prevPlayerXposition));
 
     if(bd.getBoard(playerYposition, playerXposition) == bd.D)
@@ -126,6 +141,24 @@ public class Player
       return true;
     else
       return false;
+  }
+
+  public boolean checkCure()
+  {
+    if(tillCure <= 0)
+      return true;
+    else
+      return false;
+  }
+
+  public int getTillCure()
+  {
+    return tillCure;
+  }
+
+  public void setTillCure()
+  {
+    tillCure = 5;
   }
 
 }

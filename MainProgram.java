@@ -1,10 +1,12 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class MainProgram
 {
   private static int score = 0;
-  private static int level = 1;
-  private static boolean gameOver = false;
+  private static int level = 4;
+  private static boolean cure = false, gameOver = false;
+  private static Random rand = new Random();
 
   public static void main(String[] args) 
   {
@@ -47,11 +49,30 @@ public class MainProgram
     System.out.println("Press enter to move the player randomly");
     while(endGame() != true)
     {
-      pl.updatePlayer(3);
-      ick.updateDisease();
+      pl.updatePlayer(level);
+
+      if(pl.checkCure() == true)
+      {
+	cure = true;
+	if (rand.nextInt(5) == 1)
+	{
+	  cure = false;
+	  pl.setTillCure();
+	}
+      }
+
+      if(cure == false)
+      {
+	ick.updateDisease();
+      }
+
       bd.printBoard();
       System.out.println("\n\nScore: " + score);
       System.out.println("Level: " + level);
+      if(level == 4)
+      {
+	System.out.println("Turns till cure: " + pl.getTillCure());
+      }
       new Scanner(System.in).nextLine();
       score++;
 
