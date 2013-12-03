@@ -156,5 +156,15 @@ public class Player
   {
     tillCure = 5;
   }
+  
+  public int getX()
+  { 
+    return playerXposition;
+  }
+
+  public int getY()
+  { 
+    return playerYposition;
+  }
 
 }

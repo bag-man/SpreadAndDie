@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class MainProgram
 {
-  private static int score = 0, level = 1, regions;
+  private static int score = 0, level = 1, regions, diseaseY, diseaseX;
   private static boolean mutation = false, cure = false, gameOver = false;
   private static Random rand = new Random();
   private static Player pl;
@@ -81,17 +81,12 @@ public class MainProgram
       }
     }
   }
-  public static void createGame()
-  {
-    bd = new Board(regions);
-    pl = new Player(bd);
 
-    pl.updatePlayer(level);
-    bd.printBoard();
-
+  public static void placeDisease()
+  { 
     System.out.println("\nThis is the board, you are the P, enter the co-ordiantes for where the Disease starts.");
     System.out.print("X: ");
-    int diseaseX = Keyboard.readInt();
+    diseaseX = Keyboard.readInt();
     while(diseaseX <0 || diseaseX >11)
     {  
       System.out.print("Pick betwen 0 and 11 please: ");
@@ -99,14 +94,31 @@ public class MainProgram
     }
 
     System.out.print("Y: ");
-    int diseaseY = Keyboard.readInt();
+    diseaseY = Keyboard.readInt();
     while(diseaseY <0 || diseaseY >11)
     {  
       System.out.print("Pick betwen 0 and 11 please: ");
       diseaseY = Keyboard.readInt();
     }
 
+    if(diseaseY == pl.getY() && diseaseX == pl.getX())
+    {
+      System.out.println("You cannot place the disease on the player!");
+      placeDisease();
+    }
+
     pl.setDisease(diseaseX, diseaseY);
+  }
+
+  public static void createGame()
+  {
+    bd = new Board(regions);
+    pl = new Player(bd);
+
+    pl.updatePlayer(level);
+    bd.printBoard();
+    placeDisease();
+
 
     ick = new Disease(diseaseX, diseaseY, bd);
     bd.printBoard();
