@@ -24,7 +24,6 @@ public class MainProgram
 
     createGame();
     playGame();
-
   }
 
   public static void playGame() 
