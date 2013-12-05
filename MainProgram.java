@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class MainProgram
 {
-  private static int score = 0, level = 1, regions, diseaseY, diseaseX;
+  private static int score = 0, level = 4, regions, diseaseY, diseaseX;
   private static boolean mutation = false, cure = false, gameOver = false;
   private static Random rand = new Random();
   private static Player pl;
@@ -74,7 +74,7 @@ public class MainProgram
       new Scanner(System.in).nextLine();
       score++;
 
-      if(score == 5) //This value can be changed for difficulty. Spec says 20 but that is hard to test with.
+      if(score == 20) //This value can be changed for difficulty. Spec says 20 but that is hard to test with.
       {
         System.out.println("Level UP!");
 	new Scanner(System.in).nextLine(); //I should use exisiting scanner object
